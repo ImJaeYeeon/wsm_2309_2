@@ -73,3 +73,19 @@ const initButton = () => {
     next_btn.onclick = nextMonth;
 }
 initButton();
+
+//급식API, AJAX 급식데이터 가져오기
+const KEY = "3754e02d896842de843e9f4aea3a0a7b";
+
+const ATPT_OFCDC_SC_CODE = "B10";
+const SD_SCHUL_CODE = "7010569";
+let MLSV_YMD = "20221019";
+let MMEAL_SC_CODE = 2;
+let url = `https://open.neis.go.kr/hub/mealServiceDietInfo`;
+url += `?KEY=${KEY}`;
+url += `&Type=json`;
+url += `&ATPT_OFCDC_SC_CODE=${ATPT_OFCDC_SC_CODE}`;
+url += `&SD_SCHUL_CODE=${SD_SCHUL_CODE}`;
+url += `&MLSV_YMD=${MLSV_YMD}`;
+url += `&MMEAL_SC_CODE=${MMEAL_SC_CODE}`;
+console.log(url);
