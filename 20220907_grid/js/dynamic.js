@@ -75,6 +75,10 @@ const initButton = () => {
 initButton();
 
 //급식API, AJAX 급식데이터 가져오기
+//.data-grid-container > .grid-item에 mousover 이벤트 발생하면, handler를 지정
+//handler에서 year.month.date 정보를 가져와서 url 생성
+//url 호출
+//응답오면, #breakfast, #lunch, #dinner에 호출
 const KEY = "3754e02d896842de843e9f4aea3a0a7b";
 
 const ATPT_OFCDC_SC_CODE = "B10";
