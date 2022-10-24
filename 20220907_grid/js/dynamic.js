@@ -96,10 +96,21 @@ const handler = (event) => {
 //AJAX로 url 호출하자
 const getMenuByAPI = (url) => {
     //XMLHttpRequest 만들자
-    
-    //요청 보낼 방식,url,비동기여부 설정하자
-    //요청 전송하자
+    let xhr = new XMLHttpRequest();
     //callback
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+            //success
+            console.log("성공");
+            console.log(xhr.response);
+        } else {
+            //fail
+        }
+    }
+    //요청 보낼 방식,url,비동기여부 설정하자
+    xhr.open("GET", url, true);
+    //요청 전송하자
+    xhr.send();
 }
 //응답오면, #breakfast, #lunch, #dinner에 호출
 let dateGridContainerDiv = document.getElementsByClassName("date-grid-container")[0];
