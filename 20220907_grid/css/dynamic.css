@@ -20,6 +20,7 @@ main {
     /* display: flex;
     justify-content: center;
     align-items: center; */
+    cursor: pointer;
 }
 
 h1 {
@@ -48,6 +49,7 @@ h1 {
 .date-grid-container .grid-item:hover {
     background-color: paleturquoise;
     border-radius: 20px;
+    cursor: pointer;
 }
 
 .date-grid-container {
