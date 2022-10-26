@@ -45,6 +45,11 @@ h1 {
     align-items: center;
 }
 
+.date-grid-container .grid-item:hover {
+    background-color: paleturquoise;
+    border-radius: 20px;
+}
+
 .date-grid-container {
     color: black;
 }
