@@ -47,9 +47,9 @@ h1 {
 }
 
 .date-grid-container .grid-item:hover {
+    cursor: pointer;
     background-color: paleturquoise;
     border-radius: 20px;
-    cursor: pointer;
 }
 
 .date-grid-container {
