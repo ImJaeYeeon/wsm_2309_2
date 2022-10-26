@@ -136,16 +136,16 @@ const showMenu = (jsonStirng) => {
     }
 
     //조식,중식,석식 -> html
+    //응답오면, #breakfast, #lunch, #dinner에 호출
     breakfast.innerHTML = breakfastMenu;
     lunch.innerHTML = lunchMenu;
     dinner.innerHTML = dinnerMenu;
 }
-//응답오면, #breakfast, #lunch, #dinner에 호출
 let dateGridContainerDiv = document.getElementsByClassName("date-grid-container")[0];
 let gridItems = dateGridContainerDiv.getElementsByClassName("grid-item");
 for (let gridItem of gridItems) {
     //console.log(gridItem);
-    gridItem.onclick = handler;
+    gridItem.onmouseover = handler; //mouseover일 때 , 이벤트 하자
 }
 
 
