@@ -124,14 +124,19 @@ const showMenu = (jsonStirng) => {
     let dinnerMenu = "없음";
     try {
         breakfastMenu = json["mealServiceDietInfo"][1]["row"][0]["DDISH_NM"];
+        //(5.13.)삭제
+        //(열고,숫자,점 여러개)닫고
+        breakfastMenu = breakfastMenu.replace(/\([0123456789\.]+\)/g, "");
     } catch {
     }
     try {
         lunchMenu = json["mealServiceDietInfo"][1]["row"][1]["DDISH_NM"];
+        lunchMenu = lunchMenu.replace(/\([0-9\.]+\)/g, "");
     } catch {
     }
     try {
         dinnerMenu = json["mealServiceDietInfo"][1]["row"][2]["DDISH_NM"];
+        dinnerMenu = dinnerMenu.replace(/\(\d\.]+\)/g, "");
     } catch {
     }
 
