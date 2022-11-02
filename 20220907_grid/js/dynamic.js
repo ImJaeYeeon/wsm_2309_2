@@ -6,6 +6,24 @@ let year = now.getFullYear();
 let month = now.getMonth();
 month++;
 
+const handler = (event) => {
+    //handler에서 year.month.date 정보를 가져와서 url 생성
+    let date = event.target.innerHTML;
+    const KEY = "3754e02d896842de843e9f4aea3a0a7b";
+    const ATPT_OFCDC_SC_CODE = "B10";
+    const SD_SCHUL_CODE = "7010569";
+    let MLSV_YMD = `${year}${month.toString().padStart(2, 0)}${date.padStart(2, "0")}`;
+    let url = `https://open.neis.go.kr/hub/mealServiceDietInfo`;
+    url += `?KEY=${KEY}`;
+    url += `&Type=json`;
+    url += `&ATPT_OFCDC_SC_CODE=${ATPT_OFCDC_SC_CODE}`;
+    url += `&SD_SCHUL_CODE=${SD_SCHUL_CODE}`;
+    url += `&MLSV_YMD=${MLSV_YMD}`;
+    // console.log(url);
+    getMenuByAPI(url);
+
+}
+
 const setCalendar = (year, month) => {
 
     //1일이 무슨 요일?
@@ -40,6 +58,14 @@ const setCalendar = (year, month) => {
     //1일에 해당하는 div를 grid-column-start: 요일 +1;
     let firstDateDiv = dateGridContainerDiv.getElementsByClassName("grid-item")[0];
     firstDateDiv.style.gridColumn = firstDay + 1;
+
+    //mouseover event  자리
+    let gridItems = dateGridContainerDiv.getElementsByClassName("grid-item");
+    for (let gridItem of gridItems) {
+        //console.log(gridItem);
+        gridItem.onmouseover = handler; //mouseover일 때 , 이벤트 하자
+    }
+
 }
 setCalendar(year, month);
 //이전 달 달력 보이자
@@ -76,23 +102,7 @@ initButton();
 
 //급식API, AJAX 급식데이터 가져오기
 //.data-grid-container > .grid-item에 mousover 이벤트 발생하면, handler를 지정
-const handler = (event) => {
-    //handler에서 year.month.date 정보를 가져와서 url 생성
-    let date = event.target.innerHTML;
-    const KEY = "3754e02d896842de843e9f4aea3a0a7b";
-    const ATPT_OFCDC_SC_CODE = "B10";
-    const SD_SCHUL_CODE = "7010569";
-    let MLSV_YMD = `${year}${month.toString().padStart(2, 0)}${date.padStart(2, "0")}`;
-    let url = `https://open.neis.go.kr/hub/mealServiceDietInfo`;
-    url += `?KEY=${KEY}`;
-    url += `&Type=json`;
-    url += `&ATPT_OFCDC_SC_CODE=${ATPT_OFCDC_SC_CODE}`;
-    url += `&SD_SCHUL_CODE=${SD_SCHUL_CODE}`;
-    url += `&MLSV_YMD=${MLSV_YMD}`;
-    // console.log(url);
-    getMenuByAPI(url);
 
-}
 //AJAX로 url 호출하자
 const getMenuByAPI = (url) => {
     //XMLHttpRequest 만들자
