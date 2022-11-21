@@ -1,18 +1,18 @@
 .grid-container {
     display: grid;
     grid-template-areas:
-        "header header header"
-        "nav main side-a"
-        "footer main side-a";
+        "header header  header"
+        "nav    main    side-a"
+        "footer footer footer";
     grid-template-columns: 100px 3fr 1fr;
-}
-
-.header {
-    grid-area: header;
 }
 
 header {
     border: 1px solid gray;
+}
+
+.header {
+    grid-area: header;
 }
 
 nav {
